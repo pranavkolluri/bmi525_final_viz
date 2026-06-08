@@ -1,3 +1,5 @@
+# to rebuild: shinylive::export(".", "docs")
+
 library(shiny)
 library(tidyverse)
 library(leaflet)
