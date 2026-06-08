@@ -195,9 +195,10 @@ server <- function(input, output, session) {
       tags$table(style = "width:100%",
         tags$tr(tags$td("Max Air Temp"), tags$td(fmt(w$max_air_temp, " C"))),
         tags$tr(tags$td("Min Air Temp"), tags$td(fmt(w$min_air_temp, " C"))),
+        tags$tr(tags$td("Max Ground Temp"), tags$td(fmt(w$max_ground_temp, " C"))),
+        tags$tr(tags$td("Min Ground Temp"), tags$td(fmt(w$min_ground_temp, " C"))),
         tags$tr(tags$td("Pressure"), tags$td(fmt(w$pressure, " Pa"))),
         tags$tr(tags$td("UV"), tags$td(fmt(w$uv, ""))),
-        tags$tr(tags$td("Weather"), tags$td(fmt(w$weather, ""))),
         tags$tr(tags$td("Elevation"), tags$td(fmt(round(loc$elevation, 1), " m")))
       )
     )
