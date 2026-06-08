@@ -3,6 +3,7 @@
 library(shiny)
 library(tidyverse)
 library(leaflet)
+library(mgcv)
 
 weather <- read_csv("data/curiosity_rems_clean.csv", show_col_types = FALSE) %>%
   mutate(earth_date = as.Date(earth_date))
@@ -59,7 +60,7 @@ makeSeasonPlot <- function(var) {
 
   ggplot(dat, aes(x = ls, y = y)) +
     geom_point(alpha = 0.25, size = 0.9, color = "#4e79a7") +
-    geom_smooth(method = "loess", se = FALSE, color = "#e15759", linewidth = 1) +
+    geom_smooth(method = "gam", formula = y ~ s(x, bs = "cc", k = 20), se = FALSE, color = "#e15759", linewidth = 1) +
     scale_x_continuous(
       breaks = c(0, 90, 180, 270, 360),
       labels = c("0\n(N. Spring)", "90\n(N. Summer)", "180\n(N. Autumn)", "270\n(N. Winter)", "360")
