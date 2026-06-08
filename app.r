@@ -51,6 +51,8 @@ makeSeasonPlot <- function(var) {
   lbl <- switch(var,
     "max_air_temp" = "Max Air Temp (°C)",
     "min_air_temp" = "Min Air Temp (°C)",
+    "max_ground_temp" = "Max Ground Temp (°C)",
+    "min_ground_temp" = "Min Ground Temp (°C)",
     "pressure" = "Pressure (Pa)"
   )
 
@@ -121,6 +123,8 @@ ui <- fluidPage(
           selectInput("season_var", "Variable",
                       choices = c("Max Air Temp" = "max_air_temp",
                                   "Min Air Temp" = "min_air_temp",
+                                  "Max Ground Temp" = "max_ground_temp",
+                                  "Min Ground Temp" = "min_ground_temp",
                                   "Pressure" = "pressure"))
         ),
         mainPanel(plotOutput("plot2"))
